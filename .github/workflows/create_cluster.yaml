@@ -99,6 +99,10 @@ jobs:
       # - name: Terraform Destroy - Infra destruction
       #   run: terraform destroy -no-color -auto-approve -var db_password=demo123456
       #   working-directory: infra-as-code/terraform/sample-aws       
+      - name: Install Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.6.0
 
   Terraform_Infra_Creation:
     if: ${{ github.event_name == 'push' }}
